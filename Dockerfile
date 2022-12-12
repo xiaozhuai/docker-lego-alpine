@@ -10,6 +10,10 @@ RUN set -ex \
     && cd /code \
     && git clone https://github.com/go-acme/lego \
     && cd /code/lego \
+    && go mod download
+
+RUN set -ex \
+    && cd /code/lego \
     && make build
 
 FROM alpine:latest
