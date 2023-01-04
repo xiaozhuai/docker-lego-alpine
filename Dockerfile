@@ -8,7 +8,7 @@ RUN apk --no-cache add make git
 RUN set -ex \
     && mkdir /code \
     && cd /code \
-    && git clone https://github.com/go-acme/lego \
+    && git clone --depth=1 "https://github.com/go-acme/lego" \
     && cd /code/lego \
     && go mod download
 
