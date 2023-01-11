@@ -14,7 +14,8 @@ RUN set -ex \
 
 RUN set -ex \
     && cd /code/lego \
-    && make build
+    && SHA="$(shell git rev-parse HEAD)" \
+    && go build -trimpath -ldflags '-X "main.version=${SHA}" -s -w' -o dist/lego ./cmd/lego/
 
 FROM alpine:latest
 
